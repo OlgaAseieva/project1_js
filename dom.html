@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1 id="main">Hello World!</h1>
+        <p class="hobbits"> This is first paragraph.</p>
+        
+        <ul id="list">
+            <li class="items"> Item 1</li>
+            <li class="items"> Item 2</li>
+            <li class="items"> Item 3</li>
+            <li class="items"> Item 4</li>
+        </ul>
+        <p > This is second paragraph.</p>
+        <p  class="hobbits"> This is second paragraph.</p>
+    </div>
+    
+<script>
+        let mainHeading = document.querySelector("#main");
+        mainHeading.textContent = "Hello DOM!";
+
+        let items = document.querySelectorAll('.items');
+        console.log(items);
+        for (let item of items) {
+            item.style.backgroundColor = "green";
+        } 
+
+        let paragraph = document.querySelectorAll('p');
+        console.log(paragraph);
+        for (let p of paragraph) {
+            p.style.backgroundColor = "blue";
+        } 
+
+        let gobit = document.getElementsByClassName('hobbits');
+        for (el of gobit){
+            el.textContent = "Гобіти Ширу";
+            el.style.backgroundColor = "yellow";
+        }
+
+        // Insert /delete elements by JS 
+        let newParagraph = document.createElement("p");
+        newParagraph.textContent ="Create new paragraph";
+        let container =document.getElementById("container");
+        container.appendChild(newParagraph);
+
+        let newItem = document.createElement("li");
+        newItem.textContent ="Create new element";
+        let list =document.getElementById("list");
+        list.appendChild(newItem);
+
+// callback -function and high-level function
+function double(n) {
+    return  n * 2;
+};
+
+function modifyArray( arr, callback) {
+    let newArr = arr.map(callback);
+    return newArr;
+};
+
+let arr = [1, 2, 3, 4];
+let doubleArr = modifyArray (arr, double);
+console.log(doubleArr); 
+
+
+
+ </script>
+</body>
+</html>
